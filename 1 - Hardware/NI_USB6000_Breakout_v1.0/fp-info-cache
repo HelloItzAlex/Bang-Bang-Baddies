@@ -1,4 +1,11 @@
-26662526431594809
+26673148741073749
+3_5mm_Block
+Untitled
+
+
+0
+0
+0
 2601_3104
 CONN4_2601-3104_WAG
 
@@ -6,6 +13,20 @@ CONN4_2601-3104_WAG
 0
 8
 8
+759000421
+3.5mmPitch01x16
+
+759000421 
+0
+16
+16
+759000421
+CONN_SD-75900-002_1X02_MOL
+
+759000421 
+0
+2
+2
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -61256,6 +61277,27 @@ One digit LED 7 segment SA39-11 SC39-11 SA39-12 SC39-12
 0
 10
 10
+FSV15100V
+TO-277-3LD_ONS
+
+FSV15100V 
+0
+3
+3
+FSV15100V
+TO-277-3LD_ONS-L
+
+FSV15100V 
+0
+3
+3
+FSV15100V
+TO-277-3LD_ONS-M
+
+FSV15100V 
+0
+3
+3
 Ferrite_THT
 LairdTech_28C0236-0JW-10
 Ferrite, vertical, LairdTech 28C0236-0JW-10, https://assets.lairdtech.com/home/brandworld/files/28C0236-0JW-10.pdf, JW Miller core https://www.bourns.com/products/magnetic-products/j.w.-miller-through-hole-ferrite-beads-emi-filters
@@ -106518,13 +106560,6 @@ CONN2_2601-1102_WAG
 0
 4
 4
-WAGO_2601_1102
-Untitled
-
-
-0
-0
-0
 WAGO_2601_1103
 CONN3_2601-1103_WAG
 
@@ -106539,6 +106574,13 @@ CONN4_2601-1104_WAG
 0
 8
 8
+WAGO_2601_3108
+CONN8_2601-3108_WAG
+
+2601-3108 
+0
+16
+16
 YC164_FR_0710RZ
 RESCAXE80P320X160X70-8N
 
