@@ -24,22 +24,7 @@ via the NI-MAX software.
 # See https://docs.synnaxlabs.com/reference/client/quick-start for more information.
 client = sy.Synnax()
 
-dev = client.devices.retrieve(model="USB-6289")
-
-# Create virtual command channels that will be used to send commands to the device.
-# These are virtual channels that won't store data to disk.
-ao_0_cmd = client.channels.create(
-    name="ao_0_cmd",
-    data_type=sy.DataType.FLOAT32,
-    retrieve_if_name_exists=True,
-    virtual=True,
-)
-ao_1_cmd = client.channels.create(
-    name="ao_1_cmd",
-    data_type=sy.DataType.FLOAT32,
-    retrieve_if_name_exists=True,
-    virtual=True,
-)
+dev = client.devices.retrieve(model="USB-6000")
 
 # Create an index channel that will be used to store the timestamps
 # for the analog output state data.
@@ -85,8 +70,6 @@ tsk = sy.ni.AnalogWriteTask(
     # The mapping of the analog output channels on the device to the Synnax channels.
     channels=[
         sy.ni.AOVoltageChan(
-            # The cmd channel will be used to send commands to the device.
-            cmd_channel=ao_0_cmd.key,
             # The state channel will be used to store the state of the analog output
             # after it has been commanded.
             state_channel=ao_0_state.key,
@@ -97,7 +80,6 @@ tsk = sy.ni.AnalogWriteTask(
             max_val=10.0,
         ),
         sy.ni.AOVoltageChan(
-            cmd_channel=ao_1_cmd.key,
             state_channel=ao_1_state.key,
             port=1,
             min_val=-10.0,
