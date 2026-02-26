@@ -17,7 +17,7 @@ client = sy.Synnax(
 # Index Channel
 time_channel = client.channels.create(
     name="time",
-    data_type=sy.DataType.TIMESTAMP,
+    data_type=sy.DataType.TIMESTAMP,    # required data type for index channels
     is_index=True,
 )
 
@@ -25,5 +25,5 @@ time_channel = client.channels.create(
 temp_channel = client.channels.create(
     name="AI0",
     data_type=sy.DataType.FLOAT32,
-    index=time_channel.key,
+    index=time_channel.key, # indicates that the data in this channel is tied ot the time indicies in time
 )
