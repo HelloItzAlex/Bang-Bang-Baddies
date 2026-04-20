@@ -1,0 +1,4 @@
+Sensor Physical Channel ,Sensor Name ,Scaling Equation,Resulting Units
+NI_9205_ai_0,Inlet,x*1,psi 
+NI_9205_ai_1,Flow Meter,x*2.6,gpm
+NI_9205_ai_2,Outlet,x*1,psi

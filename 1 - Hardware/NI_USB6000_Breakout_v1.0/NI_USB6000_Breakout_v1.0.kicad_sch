@@ -9015,7 +9015,7 @@
 	)
 	(text "SWITCH REQUIRED"
 		(exclude_from_sim no)
-		(at 247.904 24.384 0)
+		(at 273.431 32.766 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9045,7 +9045,7 @@
 	)
 	(text "Horz."
 		(exclude_from_sim no)
-		(at 233.68 29.21 0)
+		(at 268.605 46.99 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9213,7 +9213,7 @@
 		(uuid "2426c4e7-9651-45e1-a1a9-33e2ae251077")
 	)
 	(junction
-		(at 245.11 40.005)
+		(at 257.81 35.56)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "26de2dac-20ec-4423-8541-cc029d71d8c7")
@@ -9327,7 +9327,7 @@
 		(uuid "6c2e9289-94b8-4378-abc5-7d42bd154559")
 	)
 	(junction
-		(at 256.54 40.005)
+		(at 257.81 24.13)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "718b3f07-265c-47d6-8743-03232edeb5a6")
@@ -9411,7 +9411,7 @@
 		(uuid "948dcd5c-eabf-4975-8dfb-6d3b65b4a68a")
 	)
 	(junction
-		(at 250.19 40.005)
+		(at 257.81 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "95889f4a-981d-4cbd-a7e0-069125568eac")
@@ -9537,7 +9537,7 @@
 		(uuid "d6e66926-33b6-41a8-9ffe-d079255550e9")
 	)
 	(junction
-		(at 240.03 40.005)
+		(at 257.81 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d9a8bdda-22bd-45e1-8d77-9f8d57233c45")
@@ -9926,7 +9926,7 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 40.005) (xy 245.11 40.005)
+			(xy 257.81 36.83) (xy 257.81 35.56)
 		)
 		(stroke
 			(width 0)
@@ -9996,6 +9996,16 @@
 	)
 	(wire
 		(pts
+			(xy 255.905 24.13) (xy 257.81 24.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2280dc43-8f2d-4ab0-a807-bfe8d58e4988")
+	)
+	(wire
+		(pts
 			(xy 173.355 26.67) (xy 173.355 25.4)
 		)
 		(stroke
@@ -10006,7 +10016,7 @@
 	)
 	(wire
 		(pts
-			(xy 245.11 40.005) (xy 245.11 42.545)
+			(xy 257.81 35.56) (xy 255.27 35.56)
 		)
 		(stroke
 			(width 0)
@@ -10166,7 +10176,7 @@
 	)
 	(wire
 		(pts
-			(xy 254 38.1) (xy 254 40.005)
+			(xy 259.715 26.67) (xy 257.81 26.67)
 		)
 		(stroke
 			(width 0)
@@ -10256,7 +10266,7 @@
 	)
 	(wire
 		(pts
-			(xy 241.3 38.1) (xy 241.3 40.005)
+			(xy 259.715 39.37) (xy 257.81 39.37)
 		)
 		(stroke
 			(width 0)
@@ -10306,7 +10316,7 @@
 	)
 	(wire
 		(pts
-			(xy 240.03 41.91) (xy 240.03 40.005)
+			(xy 255.905 40.64) (xy 257.81 40.64)
 		)
 		(stroke
 			(width 0)
@@ -10486,7 +10496,7 @@
 	)
 	(wire
 		(pts
-			(xy 245.11 42.545) (xy 250.19 42.545)
+			(xy 255.27 35.56) (xy 255.27 30.48)
 		)
 		(stroke
 			(width 0)
@@ -10706,7 +10716,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 40.005) (xy 240.03 40.005)
+			(xy 257.81 41.91) (xy 257.81 40.64)
 		)
 		(stroke
 			(width 0)
@@ -10986,7 +10996,7 @@
 	)
 	(wire
 		(pts
-			(xy 245.11 40.005) (xy 246.38 40.005)
+			(xy 257.81 35.56) (xy 257.81 34.29)
 		)
 		(stroke
 			(width 0)
@@ -11116,7 +11126,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 38.1) (xy 248.92 40.005)
+			(xy 259.715 31.75) (xy 257.81 31.75)
 		)
 		(stroke
 			(width 0)
@@ -11346,7 +11356,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 40.005) (xy 250.19 40.005)
+			(xy 257.81 31.75) (xy 257.81 30.48)
 		)
 		(stroke
 			(width 0)
@@ -11526,7 +11536,7 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 38.1) (xy 243.84 40.005)
+			(xy 259.715 36.83) (xy 257.81 36.83)
 		)
 		(stroke
 			(width 0)
@@ -11686,7 +11696,7 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 40.005) (xy 246.38 38.1)
+			(xy 257.81 34.29) (xy 259.715 34.29)
 		)
 		(stroke
 			(width 0)
@@ -11776,7 +11786,7 @@
 	)
 	(wire
 		(pts
-			(xy 254 40.005) (xy 256.54 40.005)
+			(xy 257.81 26.67) (xy 257.81 24.13)
 		)
 		(stroke
 			(width 0)
@@ -11996,7 +12006,7 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 38.1) (xy 256.54 40.005)
+			(xy 259.715 24.13) (xy 257.81 24.13)
 		)
 		(stroke
 			(width 0)
@@ -12046,7 +12056,7 @@
 	)
 	(wire
 		(pts
-			(xy 250.19 40.005) (xy 250.19 42.545)
+			(xy 257.81 30.48) (xy 255.27 30.48)
 		)
 		(stroke
 			(width 0)
@@ -12236,7 +12246,7 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 40.005) (xy 251.46 38.1)
+			(xy 257.81 29.21) (xy 259.715 29.21)
 		)
 		(stroke
 			(width 0)
@@ -12356,7 +12366,7 @@
 	)
 	(wire
 		(pts
-			(xy 250.19 40.005) (xy 251.46 40.005)
+			(xy 257.81 30.48) (xy 257.81 29.21)
 		)
 		(stroke
 			(width 0)
@@ -12366,7 +12376,7 @@
 	)
 	(wire
 		(pts
-			(xy 241.3 40.005) (xy 240.03 40.005)
+			(xy 257.81 39.37) (xy 257.81 40.64)
 		)
 		(stroke
 			(width 0)
@@ -12886,16 +12896,6 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 40.005) (xy 258.445 40.005)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f5c6ce1f-cc75-4a17-9363-b951553cf20f")
-	)
-	(wire
-		(pts
 			(xy 85.725 137.16) (xy 83.82 137.16)
 		)
 		(stroke
@@ -12986,7 +12986,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 38.1) (xy 238.76 40.005)
+			(xy 259.715 41.91) (xy 257.81 41.91)
 		)
 		(stroke
 			(width 0)
@@ -13015,7 +13015,7 @@
 		(uuid "fe35d454-ca49-44ac-9700-8e33b346a615")
 	)
 	(label "SW"
-		(at 246.38 42.545 0)
+		(at 255.27 34.29 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13686,22 +13686,22 @@
 	)
 	(global_label "CONTROL_PWR"
 		(shape input)
-		(at 258.445 40.005 0)
+		(at 255.905 24.13 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "581103e4-d492-48df-9a46-11ba685900f1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 274.9164 40.005 0)
+			(at 239.4336 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -16595,7 +16595,8 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 240.03 41.91 0)
+		(at 255.905 40.64 270)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16604,7 +16605,7 @@
 		(fields_autoplaced yes)
 		(uuid "3eb57608-d084-4205-bc29-17555766d6b2")
 		(property "Reference" "#PWR027"
-			(at 240.03 48.26 0)
+			(at 249.555 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16613,7 +16614,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 240.03 46.355 0)
+			(at 251.46 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16622,7 +16623,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 240.03 41.91 0)
+			(at 255.905 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16631,7 +16632,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 240.03 41.91 0)
+			(at 255.905 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16640,7 +16641,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 240.03 41.91 0)
+			(at 255.905 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18971,34 +18972,34 @@
 	)
 	(symbol
 		(lib_id "WAGO_2601_1104:2601-1104")
-		(at 238.76 38.1 90)
+		(at 259.715 41.91 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "a2e78ef2-6519-4905-bd05-44deb771fbf1")
 		(property "Reference" "J6"
-			(at 260.35 27.9399 90)
+			(at 259.715 17.018 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "CONTROL_PWR_IN"
-			(at 260.35 30.4799 90)
+			(at 259.715 19.558 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "WAGO_2601_1104:CONN4_2601-1104_WAG"
-			(at 238.76 38.1 0)
+			(at 259.715 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19008,7 +19009,7 @@
 			)
 		)
 		(property "Datasheet" "2601-1104"
-			(at 238.76 38.1 0)
+			(at 259.715 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19018,7 +19019,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 238.76 38.1 0)
+			(at 259.715 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
