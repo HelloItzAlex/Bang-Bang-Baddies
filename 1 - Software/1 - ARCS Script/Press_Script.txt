@@ -1,0 +1,152 @@
+authority 200
+
+SET_POINT f32 := 400.0 //TARGET PRESSURE
+SMALL_WINDOW f32 := 10.0
+LARGE_WINDOW f32 := 60.0
+//HUGE_WINDOW f32 := 60.0
+ABORT_SETPOINT f32 := 600.0
+
+func single_BB_controler (pressure f32) u8 
+{
+    tpc_1_hys u8 $= 0 //KNOWN STATES OF VALVES BEFORE HAND
+
+    if tpc_1_hys == 0 and pressure < (SET_POINT - SMALL_WINDOW)
+    {//IF CHUD ISNT FILLING AND PRESSURE IS BELOW SETPOINT
+        tpc_1_hys = 1 //CHUD FILL
+    } 
+    else if pressure > SET_POINT
+    {//IF CHUD IS FILLING XOR PRESSURE ABOVE SETPOINT AND PRESSURE IS ABOVE SETPOINT
+        tpc_1_hys = 0 //CLOSE CHUD
+    }
+
+    return tpc_1_hys
+}
+
+func BB_controller (pressure f32) (tpc_1_out u8, tpc_2_out u8, bleed_out u8) 
+{
+    tpc_1_hys u8 $= 0 //KNOWN STATE of GM3K BEFORE HAND
+    tpc_2_hys u8 $= 0 //KNOWN STATE of CDTN BEFORE HAND
+    bleed_hys u8 $= 0 //KNOWN STATE of BLED BEFORE HAND
+
+
+    if pressure < (SET_POINT - LARGE_WINDOW) { // if pressure is well below target, open GM3K and CDTN
+        tpc_1_hys = 1
+        tpc_2_hys = 1
+        bleed_hys = 0
+        Log = "FAST FILL"
+    } /*else if pressure >= (SET_POINT - HUGE_WINDOW) and pressure < (SET_POINT - LARGE_WINDOW) { // low, open GM3K only
+        tpc_1_hys = 1
+        tpc_2_hys = 0
+        bleed_hys = 0
+        Log = "LARGE FILL"
+    } */
+    else if pressure >= (SET_POINT - LARGE_WINDOW) and pressure < (SET_POINT - SMALL_WINDOW) { // barely low, open CDTN only
+        tpc_1_hys = 0
+        tpc_2_hys = 1
+        bleed_hys = 0
+        Log = "SMALL FILL"
+    } else if pressure >= (SET_POINT - SMALL_WINDOW) and pressure < (SET_POINT + 100.0) { // in window, hold
+        tpc_1_hys = 0
+        tpc_2_hys = 0
+        bleed_hys = 0
+        Log = "PRES HOLD"
+    } else if pressure >= (SET_POINT + 100.0) { // above window, open BLED
+        tpc_1_hys = 0
+        tpc_2_hys = 0
+        bleed_hys = 1
+        Log = "BLEED"
+    }
+
+    tpc_1_out = tpc_1_hys
+    tpc_2_out = tpc_2_hys
+    bleed_out = bleed_hys
+}
+
+sequence main 
+{
+    stage init 
+    {
+        //WRITE TO LOG
+        "RUN" -> Log,
+
+        //ABORT CONDITIONS
+        abort_button => abort,
+
+        //WRITE TO LOG
+        "INIT" -> Log,
+        //DRIVE ALL VALVES INTO NOMINAL STATE
+        0 -> BangDAQ_do_0_0_cmd,
+        0 -> BangDAQ_do_0_1_cmd,
+        0 -> BangDAQ_do_0_2_cmd,
+        1 -> BangDAQ_do_0_3_cmd,
+        //MOVE TO RUN IF WORKS
+        wait{duration=3s} => press_up
+    }
+    stage press_up 
+    {
+        //ABORT CONDITIONS
+        //DEV2_ai_2 > ABORT_SETPOINT => abort,
+        abort_button => abort,
+
+        //WRITE TO LOG
+        "PRESS UP" -> Log,
+        
+        //CHECK TANKS PRESSURE AGAINST SETPOINT THEN COMAND VALVES
+
+        //SINGLE VALVE CONTROLER
+        //DEV2_ai_2 -> single_BB_controler{} -> DEV2_do_0_1_cmd,
+        //DEV2_ai_2 > (SET_POINT - SMALL_WINDOW) and DEV2_ai_1 < (SET_POINT + SMALL_WINDOW) => hold
+
+        //MULTI VALVE CONTROLER
+        virtual_bot_tank_press -> BB_controller{} -> {tpc_2_out: BangDAQ_do_0_0_cmd, tpc_1_out: BangDAQ_do_0_1_cmd, bleed_out: BangDAQ_do_0_2_cmd},
+        virtual_bot_tank_press > (SET_POINT - SMALL_WINDOW) and BangDAQ_ai_2 < (SET_POINT + SMALL_WINDOW) => hold
+        wait{duration=10s} => end
+    }
+    stage hold 
+    {
+        //DEV2_ai_2 > ABORT_SETPOINT => abort,
+        //PRESS_ENABLE_STATE == 0 => abort,
+        abort_button => abort,
+
+        "HOLD" -> Log,
+        
+        //DEV2_ai_2 -> single_BB_controler{} -> DEV2_do_0_1_cmd,
+        interval{period=100ms} -> virtual_bot_tank_press -> BB_controller{} -> {tpc_2_out: BangDAQ_do_0_0_cmd, tpc_1_out: BangDAQ_do_0_1_cmd, bleed_out: BangDAQ_do_0_2_cmd},
+
+
+        wait{duration=10s} => pause
+    }
+    stage pause 
+    {
+        "PAUSE" -> Log,
+        //DRIVE ALL VALVES INTO NOMINAL STATE
+        0 -> BangDAQ_do_0_0_cmd,
+        0 -> BangDAQ_do_0_1_cmd,
+        0 -> BangDAQ_do_0_2_cmd,
+        1 -> BangDAQ_do_0_3_cmd,
+        wait{duration=2s} => end
+    }
+    stage end 
+    {
+        "END" -> Log,
+        //DRIVE ALL VALVES INTO NOMINAL STATE
+        0 -> BangDAQ_do_0_0_cmd,
+        0 -> BangDAQ_do_0_1_cmd,
+        0 -> BangDAQ_do_0_2_cmd,
+        0 -> BangDAQ_do_0_3_cmd,
+        press_run => main
+    }
+}
+sequence abort {//ABORT HERE TO STOP SEQUENCE
+    stage end {
+        "ABORT" -> Log,
+        //DRIVE ALL VALVES INTO NOMINAL STATE
+        0 -> BangDAQ_do_0_0_cmd,
+        0 -> BangDAQ_do_0_1_cmd,
+        0 -> BangDAQ_do_0_2_cmd,
+        0 -> BangDAQ_do_0_3_cmd,
+    }
+}
+
+abort_button => abort
+press_run => main
